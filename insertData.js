@@ -202,7 +202,6 @@ MongoClient.connect(url,{useNewUrlParser: true}, function(err, db) {
     indigoDB = db.db('indigoFlights');
     console.log("Database created!");
     indigoDB.collection('indigoflights').insertMany(data, (doc, err) => {
-        console.log(doc);
     })
     db.close();
   });

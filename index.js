@@ -36,9 +36,7 @@ require('amqplib').connect('amqp://localhost')
                     const finalQuery = {_id: query.id}
                     Flights.findOneAndUpdate(finalQuery,{seats: query.seats-1}, (err, doc) => {
                         if (err) {
-                            res.status(500).json({
-                                error: err
-                            });
+                            console.log(err);
                         } else {
                             ch.sendToQueue(msg.properties.replyTo,
                                 Buffer.from(JSON.stringify(doc)), {
